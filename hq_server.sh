@@ -9,3 +9,9 @@ systemctl enable nscd.service;
 systemctl stop firewalld.service;
 systemctl disable firewalld.service;
 yum -y install screen;
+screen_name1=$"EOS_hq_huobi"
+screen -dmS $screen_name1
+cmd1=$"sleep 10s; php -f /var/www/html/v1/get_hq/get_hq_eosbtc_huobi.php";
+screen -x -S $screen_name1 -p 0 -X stuff "$cmd1"
+screen -x -S $screen_name1 -p 0 -X stuff $'\n'
+screen -x -S $screen_name1 -p 0 -X stuff "exit"
