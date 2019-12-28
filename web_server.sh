@@ -9,3 +9,5 @@ systemctl enable nscd.service;
 systemctl stop firewalld.service;
 systemctl disable firewalld.service;
 yum -y install screen;
+yum -y install mod_ssl;
+yum -y install showmount;
