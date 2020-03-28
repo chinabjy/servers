@@ -1,4 +1,4 @@
-screen -ls|awk 'NR>=2&&NR<=20{print $1}'|awk '{print "screen -S "$1" -X quit"}'|sh;
+screen -ls|awk 'NR>=2&&NR<=20{print $1}'|awk '{print "screen -S "$1" -X quit"}'|sh
 screen_name1=$"EOS_hq_huobi"
 screen -dmS $screen_name1
 cmd1=$"php -f /var/www/html/v1/get_hq/get_hq_eosbtc_huobi.php";
