@@ -49,7 +49,7 @@ ifconfig >/dev/null 2>&1
 [ ! -f /proc/net/dev ] && echo -ne "I can not find network device! \n\n" && exit 1;
 [ -n "$(grep 'eth0:' /proc/net/dev)" ] && Eth=eth0 || Eth=`cat /proc/net/dev |awk -F: 'function trim(str){sub(/^[ \t]*/,"",str); sub(/[ \t]*$/,"",str); return str } NR>2 {print trim($1)}'  |grep -Ev '^lo|^sit|^stf|^gif|^dummy|^vmnet|^vir|^gre|^ipip|^ppp|^bond|^tun|^tap|^ip6gre|^ip6tnl|^teql|^venet' |awk 'NR==1 {print $0}'`
 [ -z "$Eth" ] && echo "I can not find the server pubilc Ethernet! " && exit 1
-URLKernel='https://raw.githubusercontent.com/chinabjy/servers/master/serverSpeeder.txt'
+URLKernel='https://raw.githubusercontent.com/chinabjy/serverspeeder/test/serverspeederbin.txt'
 AcceVer=$(wget --no-check-certificate -qO- "$URLKernel" |grep "$KNA/" |grep "/x$KNB/" |grep "/$KNK/" |awk -F'/' '{print $NF}' |sort -n -k 2 -t '_' |tail -n 1)
 MyKernel=$(wget --no-check-certificate -qO- "$URLKernel" |grep "$KNA/" |grep "/x$KNB/" |grep "/$KNK/" |grep "$AcceVer" |tail -n 1)
 [ -z "$MyKernel" ] && echo -ne "Kernel not be matched! \nYou should change kernel manually, and try again! \n\nView the link to get detaits: \n"$URLKernel" \n\n\n" && exit 1
