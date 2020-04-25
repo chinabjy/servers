@@ -73,8 +73,8 @@ dl-Lic;
 bash /tmp/appex/install.sh
 rm -rf /tmp/appex* >/dev/null 2>&1
 clear
-/appex/bin/serverSpeeder.sh stop
-wget -qO /appex/etc/config https://raw.githubusercontent.com/chinabjy/servers/master/config
+#/appex/bin/serverSpeeder.sh stop
+#wget -qO /appex/etc/config https://raw.githubusercontent.com/chinabjy/servers/master/config
 /appex/bin/serverSpeeder.sh start
 bash /appex/bin/serverSpeeder.sh status
 exit 0
