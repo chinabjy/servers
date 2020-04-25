@@ -118,7 +118,7 @@ echo "Lic generate success! "
 
 function ServerSpeeder()
 {
-[ ! -f /tmp/appex.zip ] && wget --no-check-certificate -q -O "/tmp/appex.zip" "https://github.com/chinabjy/servers/raw/master/appex.zip"
+[ ! -f /tmp/appex.zip ] && wget --no-check-certificate -q -O "/tmp/appex.zip" "https://github.com/chinabjy/servers/raw/master/appex-2.zip"
 [ ! -f /tmp/appex.zip ] && Uninstall && echo "Error,Not Found appex.zip! " && exit 1
 mkdir -p /tmp/appex
 unzip -o -d /tmp/appex /tmp/appex.zip
