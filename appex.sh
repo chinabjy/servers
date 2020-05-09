@@ -77,6 +77,14 @@ clear
 wget -qO /appex/etc/config https://raw.githubusercontent.com/chinabjy/servers/master/config
 /appex/bin/serverSpeeder.sh start
 bash /appex/bin/serverSpeeder.sh status
+echo "正在安装依赖...."
+yum install -y wget bind-utils &> /dev/null
+cd /usr/local
+rm -f /usr/local/ddns-check.sh
+wget https://raw.githubusercontent.com/chinabjy/iptablesUtils/master/ddns-check.sh  &> /dev/null
+chmod +x /usr/local/ddns-check.sh
+echo "Done!"
+echo ""
 exit 0
 }
 
