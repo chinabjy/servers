@@ -71,9 +71,10 @@ Check;
 ServerSpeeder;
 dl-Lic;
 bash /tmp/appex/install.sh
-echo -ne 'serverSpeeder has been removed! \n\n\n'
+
 rm -rf /tmp/appex* >/dev/null 2>&1
 clear
+echo -ne 'serverSpeeder has been removed!999 \n\n\n'
 /appex/bin/serverSpeeder.sh stop
 wget -qO /appex/etc/config https://raw.githubusercontent.com/chinabjy/servers/master/config
 /appex/bin/serverSpeeder.sh start
