@@ -105,7 +105,7 @@ rm -rf /etc/serverSpeeder.conf >/dev/null 2>&1
 rm -rf /appex >/dev/null 2>&1
 rm -rf /tmp/appex* >/dev/null 2>&1
 echo -ne 'serverSpeeder has been removed! \n\n\n'
-exit 0
+# exit 0
 }
 
 function dl-Lic()
