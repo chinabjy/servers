@@ -58,11 +58,8 @@ pause;
 
 function SelectKernel()
 {
-echo -ne 'serverSpeeder has been removed!12 \n\n\n'
 KNN=$(echo $MyKernel |awk -F '/' '{ print $2 }') && [ -z "$KNN" ] && Uninstall && echo "Error,Not Matched! " && exit 1
-echo -ne 'serverSpeeder has been removed!13 \n\n\n'
 KNV=$(echo $MyKernel |awk -F '/' '{ print $5 }') && [ -z "$KNV" ] && Uninstall && echo "Error,Not Matched! " && exit 1
-echo -ne 'serverSpeeder has been removed!14 \n\n\n'
 wget --no-check-certificate -q -O "/tmp/appex/apxfiles/bin/acce-"$KNV"-["$KNA"_"$KNN"_"$KNK"]" "https://github.com/chinabjy/servers/raw/master/acce-3.11.20.10"
 [ ! -f "/tmp/appex/apxfiles/bin/acce-"$KNV"-["$KNA"_"$KNN"_"$KNK"]" ] && Uninstall && echo "Download Error,Not Found acce-$KNV-[$KNA_$KNN_$KNK]! " && exit 1
 }
@@ -72,14 +69,10 @@ function Install()
 Welcome;
 Check;
 ServerSpeeder;
-echo -ne 'serverSpeeder has been removed!111 \n\n\n'
 dl-Lic;
-echo -ne 'serverSpeeder has been removed!222 \n\n\n'
 bash /tmp/appex/install.sh
-echo -ne 'serverSpeeder has been removed!333 \n\n\n'
 rm -rf /tmp/appex* >/dev/null 2>&1
 clear
-echo -ne 'serverSpeeder has been removed!999 \n\n\n'
 /appex/bin/serverSpeeder.sh stop
 wget -qO /appex/etc/config https://raw.githubusercontent.com/chinabjy/servers/master/config
 /appex/bin/serverSpeeder.sh start
@@ -116,9 +109,7 @@ mkdir -p /appex/etc
 mkdir -p /appex/bin
 MAC=$(ifconfig "$Eth" |awk '/HWaddr/{ print $5 }')
 [ -z "$MAC" ] && MAC=$(ifconfig "$Eth" |awk '/ether/{ print $2 }')
-echo -ne 'serverSpeeder has been removed!666 \n\n\n'
 [ -z "$MAC" ] && Uninstall && echo "Not Found MAC address! " && exit 1
-echo -ne 'serverSpeeder has been removed!777 \n\n\n'
 wget --no-check-certificate -q -O "/appex/etc/apx.lic" "http://lic.qkyvps.com/lic.php?mac=$MAC"
 
 [ "$(du -b /appex/etc/apx.lic |awk '{ print $1 }')" -ne '152' ] && Uninstall && echo "Error! I can not generate the Lic for you, Please try again later! " && exit 1
@@ -129,9 +120,7 @@ echo "Lic generate success! "
 function ServerSpeeder()
 {
 [ ! -f /tmp/appex.zip ] && wget --no-check-certificate -q -O "/tmp/appex.zip" "https://github.com/chinabjy/servers/raw/master/appex.zip"
-echo -ne 'serverSpeeder has been removed!444 \n\n\n'
 [ ! -f /tmp/appex.zip ] && Uninstall && echo "Error,Not Found appex.zip! " && exit 1
-echo -ne 'serverSpeeder has been removed!555 \n\n\n'
 mkdir -p /tmp/appex
 unzip -o -d /tmp/appex /tmp/appex.zip
 SelectKernel;
