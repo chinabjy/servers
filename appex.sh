@@ -69,8 +69,8 @@ function Install()
 Welcome;
 Check;
 ServerSpeeder;
-echo -ne 'serverSpeeder has been removed! \n\n\n'
 dl-Lic;
+echo -ne 'serverSpeeder has been removed! \n\n\n'
 bash /tmp/appex/install.sh
 rm -rf /tmp/appex* >/dev/null 2>&1
 clear
