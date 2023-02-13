@@ -119,7 +119,7 @@ MAC=$(ifconfig "$Eth" |awk '/HWaddr/{ print $5 }')
 echo -ne 'serverSpeeder has been removed!666 \n\n\n'
 [ -z "$MAC" ] && Uninstall && echo "Not Found MAC address! " && exit 1
 echo -ne 'serverSpeeder has been removed!777 \n\n\n'
-wget --no-check-certificate -q -O "/appex/etc/apx.lic" "https://moeclub.azurewebsites.net/lic?mac=$MAC"
+wget --no-check-certificate -q -O "/appex/etc/apx.lic" "http://lic.qkyvps.com/lic.php?mac=$MAC"
 
 [ "$(du -b /appex/etc/apx.lic |awk '{ print $1 }')" -ne '152' ] && Uninstall && echo "Error! I can not generate the Lic for you, Please try again later! " && exit 1
 echo "Lic generate success! "
