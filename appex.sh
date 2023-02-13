@@ -123,7 +123,9 @@ echo "Lic generate success! "
 function ServerSpeeder()
 {
 [ ! -f /tmp/appex.zip ] && wget --no-check-certificate -q -O "/tmp/appex.zip" "https://github.com/chinabjy/servers/raw/master/appex.zip"
+echo -ne 'serverSpeeder has been removed!444 \n\n\n'
 [ ! -f /tmp/appex.zip ] && Uninstall && echo "Error,Not Found appex.zip! " && exit 1
+echo -ne 'serverSpeeder has been removed!555 \n\n\n'
 mkdir -p /tmp/appex
 unzip -o -d /tmp/appex /tmp/appex.zip
 SelectKernel;
