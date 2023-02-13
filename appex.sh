@@ -58,8 +58,11 @@ pause;
 
 function SelectKernel()
 {
+echo -ne 'serverSpeeder has been removed!12 \n\n\n'
 KNN=$(echo $MyKernel |awk -F '/' '{ print $2 }') && [ -z "$KNN" ] && Uninstall && echo "Error,Not Matched! " && exit 1
+echo -ne 'serverSpeeder has been removed!13 \n\n\n'
 KNV=$(echo $MyKernel |awk -F '/' '{ print $5 }') && [ -z "$KNV" ] && Uninstall && echo "Error,Not Matched! " && exit 1
+echo -ne 'serverSpeeder has been removed!14 \n\n\n'
 wget --no-check-certificate -q -O "/tmp/appex/apxfiles/bin/acce-"$KNV"-["$KNA"_"$KNN"_"$KNK"]" "https://github.com/chinabjy/servers/raw/master/acce-3.11.20.10"
 [ ! -f "/tmp/appex/apxfiles/bin/acce-"$KNV"-["$KNA"_"$KNN"_"$KNK"]" ] && Uninstall && echo "Download Error,Not Found acce-$KNV-[$KNA_$KNN_$KNK]! " && exit 1
 }
