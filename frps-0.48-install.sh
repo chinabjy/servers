@@ -1,3 +1,4 @@
+systemctl stop frps.service
 systemctl stop firewalld.service 
 systemctl disable firewalld.service
 wget https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
