@@ -1,6 +1,9 @@
 systemctl stop frps.service
-systemctl stop firewalld.service 
-systemctl disable firewalld.service
+#systemctl stop firewalld.service 
+#systemctl disable firewalld.service
+firewall-cmd --zone=public --add-port=1-65535/udp --permanent
+firewall-cmd --zone=public --add-port=1-65535/tcp --permanent
+firewall-cmd --reload
 sysctl -w net.core.rmem_max=25000000
 wget https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
 tar -zxvf frp_0.48.0_linux_amd64.tar.gz
