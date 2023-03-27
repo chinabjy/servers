@@ -18,10 +18,10 @@ while(true){
 			$counts = count($result)-1;
 			if(strpos($result[$counts],'too many open files') !== false 
 			or strpos($result[$counts],'failed to get work connection') !== false
-			or strpos($result[$counts],'Replaced by client') !== false){ 
+			){ 
 			echo '发生泄露\n'; 
 			$run_status = "neak";
-			$neak_count++;
+			\\$neak_count++;
 			}else{
 			echo '没有泄露\n'; 
 			$run_status = "ok";
