@@ -21,7 +21,7 @@ while(true){
 			){ 
 			echo '发生泄露\n'; 
 			$run_status = "neak";
-			\\$neak_count++;
+			//$neak_count++;
 			}else{
 			echo '没有泄露\n'; 
 			$run_status = "ok";
