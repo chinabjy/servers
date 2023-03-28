@@ -19,6 +19,7 @@ while(true){
 			if(strpos($result[$counts],'too many open files') !== false 
 			or strpos($result[$counts],'failed to get work connection') !== false
 			or strpos($result[$counts],'control writer is closing') !== false
+			or strpos($result[$counts],'client exit success') !== false
 			){ 
 			echo '发生泄露\n'; 
 			$run_status = "neak";
