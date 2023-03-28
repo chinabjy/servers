@@ -10,7 +10,7 @@ while(true){
 	$run_count++;
 	echo "\n";
 	//print_r($status);
-    //print_r($result);
+        //print_r($result);
 	if( $status == 2){
 		echo "shell命令{$shell}执行失败";
 					
@@ -23,7 +23,7 @@ while(true){
 			){ 
 			echo '发生泄露\n'; 
 			$run_status = "neak";
-			//$neak_count++;
+			$neak_count++;
 			}else{
 			echo '没有泄露\n'; 
 			$run_status = "ok";
