@@ -95,7 +95,7 @@ if check_release centos; then
     elif check_centos_main_version 7; then
         echo -e "[${green}INFO${plain}] System OS is CentOS7. Processing..."
         echo -e "-------------------------------------------"
-        rpm -ivh --nodeps https://filedown.me/Linux/Kernel/kernel-3.10.0-229.1.2.el7.x86_64.rpm --force
+        rpm -ivh https://filedown.me/Linux/Kernel/kernel-3.10.0-229.1.2.el7.x86_64.rpm --force
         if [ $? -eq 0 ]; then
             grub2-set-default `awk -F\' '$1=="menuentry " {print i++ " : " $2}' /etc/grub2.cfg | grep '(3.10.0-229.1.2.el7.x86_64) 7 (Core)' | awk '{print $1}'`
             echo -e "-------------------------------------------"
