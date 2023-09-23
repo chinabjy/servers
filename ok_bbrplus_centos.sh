@@ -22,7 +22,7 @@ if [[ -e /appex/bin/serverSpeeder.sh ]]; then
 fi
 echo -e "下载内核..."
 #wget https://github.com/cx9208/bbrplus/raw/master/centos7/x86_64/kernel-${kernel_version}.rpm
-wget https://photo.footmm.net/kernel-4.14.129-bbrplus.rpm
+wget  --no-check-certificate https://photo.footmm.net/kernel-4.14.129-bbrplus.rpm
 echo -e "安装内核..."
 yum install -y kernel-${kernel_version}.rpm
 
