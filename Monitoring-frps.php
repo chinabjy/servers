@@ -20,6 +20,7 @@ while(true){
 			or strpos($result[$counts],'failed to get work connection') !== false
 			or strpos($result[$counts],'control writer is closing') !== false
 			or strpos($result[$counts],'client exit success') !== false
+			or strpos($result[$counts],'Replaced by client') !== false 
 			){ 
 			echo '发生泄露\n'; 
 			$run_status = "neak";
