@@ -21,6 +21,7 @@ while(true){
 			or strpos($result[$counts],'control writer is closing') !== false
 			or strpos($result[$counts],'client exit success') !== false
 			or strpos($result[$counts],'Replaced by client') !== false 
+			or strpos($result[$counts],'port already used') !== false   
 			){ 
 			echo '发生泄露\n'; 
 			$run_status = "neak";
