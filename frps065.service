@@ -8,8 +8,8 @@ Wants=network-online.target
 [Service]
 # 强烈建议使用非root用户运行，创建一个专用用户，例如 'frp'
 # 如果暂时不想创建，可以先用 nobody，但创建专用用户是最佳实践
-User=nobody
-Group=nogroup
+User=root
+Group=root
 
 # 工作目录，建议设为 frp 程序所在的目录或 /tmp
 WorkingDirectory=/root/frp_0.65.0_linux_amd64/
@@ -44,7 +44,7 @@ NoNewPrivileges=true
 ProtectSystem=strict
 ReadWritePaths=/root/frp_0.65.0_linux_amd64/ # 只允许写入 frp 目录
 # 保护/home, /root, /run/user 等目录不被访问
-ProtectHome=true
+# ProtectHome=true
 # 保护内核日志
 ProtectControlGroups=true
 ProtectKernelModules=true
