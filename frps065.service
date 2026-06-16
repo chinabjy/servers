@@ -1,74 +1,13 @@
 [Unit]
-Description=FRP Server Service (High Stability Version)
-Documentation= https://gofrp.org/docs/
-After=network-online.target syslog.target
-Wants=network-online.target
-# network-online.target 比 network.target 更严格，确保网络完全就绪
+Description=FRP Server
+After=network.target
 
 [Service]
-# 强烈建议使用非root用户运行，创建一个专用用户，例如 'frp'
-# 如果暂时不想创建，可以先用 nobody，但创建专用用户是最佳实践
-User=root
-Group=root
-
-# 工作目录，建议设为 frp 程序所在的目录或 /tmp
+Type=simple
 WorkingDirectory=/root/frp_0.65.0_linux_amd64/
-
-# 启动命令
-# 注意：我将 .ini 后缀改为了 .toml，因为 0.65.0 版本默认推荐使用 toml 格式
-# 如果你的配置文件确实是 .ini 格式，请改回 -c /root/.../frps.ini
 ExecStart=/root/frp_0.65.0_linux_amd64/frps -c /root/frp_0.65.0_linux_amd64/frps.toml
-
-# 重启策略：总是重启，崩溃、被杀死、正常退出后都重启
-Restart=always
-# 重启前等待的时间（秒），避免在服务启动失败时疯狂重启
+Restart=on-failure
 RestartSec=5s
-# 启动时最大等待时间
-StartLimitBurst=5
-StartLimitIntervalSec=60s
-
-# 资源限制 - 稳定性核心！防止资源耗尽导致服务挂起
-# 最大文件打开数，对于高并发代理至关重要
-LimitNOFILE=65535
-# 最大进程数
-LimitNPROC=65535
-# 最大文件大小
-LimitFSIZE=infinity
-# 最大核心文件大小
-LimitCORE=infinity
-
-# 安全增强
-# 禁止使用特权端口 (<1024)
-NoNewPrivileges=true
-# 保护系统关键目录
-ProtectSystem=strict
-ReadWritePaths=/root/frp_0.65.0_linux_amd64/ # 只允许写入 frp 目录
-# 保护/home, /root, /run/user 等目录不被访问
-# ProtectHome=true
-# 保护内核日志
-ProtectControlGroups=true
-ProtectKernelModules=true
-ProtectKernelTunables=true
-# 禁止修改内存映射
-MemoryDenyWriteExecute=false # FRP可能需要可执行内存，此项设为false
-
-# 日志管理 - 防止日志刷满磁盘
-StandardOutput=append:/var/log/frps.log
-StandardError=append:/var/log/frps_error.log
-# 或者使用 journald (推荐，更现代)
-# StandardOutput=journal
-# StandardError=journal
-
-# 如果要用日志文件，需要指定文件权限和所有者
-# 在启动服务前，手动创建日志文件和目录并设置好权限
-# sudo mkdir -p /var/log/
-# sudo touch /var/log/frps.log /var/log/frps_error.log
-# sudo chown nobody:nogroup /var/log/frps.log /var/log/frps_error.log
-
-# 进程优先级
-Nice=0
-IOSchedulingClass=best-effort
-IOSchedulingPriority=0
 
 [Install]
 WantedBy=multi-user.target
